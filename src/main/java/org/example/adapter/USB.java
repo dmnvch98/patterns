@@ -1,2 +1,5 @@
-package org.example.adapter;public interface USB {
+package org.example.adapter;
+
+public interface USB {
+    void connectWithUSBCable();
 }
