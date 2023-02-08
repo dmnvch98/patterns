@@ -11,9 +11,12 @@ import org.example.hometask.executors.states.WorkState;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
-public class Administrator {
-    List<Executor> executors;
+public class Administrator implements RequestHandler {
+    private List<Executor> executors;
+    private final String name;
+    private Optional<Executor> canHandleRequestExecutor;
 
     private void buildChain() {
         executors = Arrays.asList(
@@ -29,16 +32,30 @@ public class Administrator {
         );
     }
 
-    public void makeRequest(Request req) {
-        executors
-            .stream()
-            .filter(handler -> handler.canHandleRequest(req))
-            .findFirst()
-            .ifPresent(handler -> handler.handle(req));
+    @Builder
+    public Administrator(String name) {
+        this.name = name;
+        buildChain();
     }
 
-    @Builder
-    public Administrator() {
-        buildChain();
+    @Override
+    public boolean canHandleRequest(Request req) {
+        canHandleRequestExecutor = executors.stream()
+            .filter(executor -> executor.canHandleRequest(req))
+            .findFirst();
+        if (canHandleRequestExecutor.isPresent()) {
+            System.out.println("Admin " + name + " found executor who can execute task :)");
+            return true;
+        }
+        System.out.println("Admin " + name + " didn't find executor who can execute task :(");
+        return false;
+    }
+
+    @Override
+    public Request handle(Request req) {
+        if (canHandleRequestExecutor.isPresent()) {
+            return canHandleRequestExecutor.get().handle(req);
+        }
+        return req;
     }
 }

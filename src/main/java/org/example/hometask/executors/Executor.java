@@ -9,5 +9,9 @@ import org.example.hometask.executors.states.State;
 @Getter
 public abstract class Executor implements RequestHandler {
     private final String name;
-    private final State state;
+    private State state;
+
+    public void changeState(State state) {
+        this.state = state;
+    }
 }

@@ -19,7 +19,10 @@ public class Supplier extends Executor {
     }
 
     @Override
-    public void handle(Request req) {
-        System.out.println("Supplier " + super.getName() + " executed task: " + req.getDescription());
+    public Request handle(Request req) {
+        System.out.println("Supplier " + super.getName() + " executed task: ");
+        req.getCommand().run();
+        req.setCompleted(true);
+        return req;
     }
 }

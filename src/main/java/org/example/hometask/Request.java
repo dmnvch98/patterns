@@ -1,18 +1,16 @@
 package org.example.hometask;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Setter;
 import lombok.Value;
+import lombok.experimental.NonFinal;
 
 @Builder
 @Value
-@AllArgsConstructor
 public class Request {
-    String description;
     RequestType requestType;
-
-    @Override
-    public String toString() {
-        return description + "-" + requestType;
-    }
+    Runnable command;
+    @NonFinal
+    @Setter
+    boolean isCompleted;
 }

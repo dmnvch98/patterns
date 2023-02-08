@@ -2,12 +2,13 @@ package org.example.hometask;
 
 public class Main {
     public static void main(String[] args) {
-        Administrator administrator = new Administrator();
-        administrator.makeRequest(Request
-            .builder()
-            .requestType(RequestType.SUPPLIER_REQUEST)
-            .description("count money")
-            .build()
+        Founder founder = Founder.builder().build();
+        founder.sendCommand(
+            Request
+                .builder()
+                .command(() -> System.out.println("some req"))
+                .requestType(RequestType.EMPLOYEE_REQUEST)
+                .build()
         );
     }
 }
