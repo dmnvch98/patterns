@@ -3,24 +3,27 @@ package org.example.hometask.executors;
 import lombok.experimental.SuperBuilder;
 import org.example.hometask.Request;
 import org.example.hometask.RequestType;
+import org.example.hometask.executors.states.State;
 import org.example.hometask.executors.states.WorkState;
 
 @SuperBuilder
-public class Supplier extends Executor {
-    @Override
-    public boolean canHandleRequest(Request req) {
-        if (req.getRequestType().equals(RequestType.SUPPLIER_REQUEST)) {
-            if (super.getState().getClass().equals(WorkState.class)) {
+public class Supplier {
+    private final String name;
+    private State state;
+
+    public boolean canExecuteTask(Request request) {
+        if (request.getRequestType().equals(RequestType.SUPPLIER_REQUEST)) {
+            if (state.getClass().equals(WorkState.class)) {
                 return true;
             }
-            System.out.println("Supplier " + super.getName() + " cannot make this task. Their status is " + super.getState().observe());
+            System.out.println("Supplier " + name + " cannot make this task. Their status is "
+                + state.observe());
         }
         return false;
     }
 
-    @Override
-    public Request handle(Request req) {
-        System.out.println("Supplier " + super.getName() + " executed task: ");
+    public Request execute(Request req) {
+        System.out.println("Supplier " + name + " executed task: ");
         req.getCommand().run();
         req.setCompleted(true);
         return req;

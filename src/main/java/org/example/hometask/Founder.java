@@ -2,6 +2,7 @@ package org.example.hometask;
 
 import lombok.Builder;
 
+@Builder
 public class Founder {
     private final Director director;
 
@@ -11,8 +12,4 @@ public class Founder {
 
     public void getCommand() {}
 
-    @Builder
-    public Founder() {
-        this.director = Director.builder().build();
-    }
 }
