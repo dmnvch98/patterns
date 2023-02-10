@@ -1,12 +1,15 @@
-package org.example.hometask;
+package org.example.hometask.managers;
 
 import lombok.Builder;
+import lombok.Getter;
+import org.example.hometask.requests.Request;
 import org.example.hometask.executors.Executor;
 
 import java.util.List;
 
-public class Administrator implements RequestHandler {
-    private final List<Executor> executors;
+public class Administrator extends Manager {
+    @Getter
+    private List<Executor> executors;
     private final String name;
     private Executor canHandleRequestExecutor;
 
@@ -22,10 +25,10 @@ public class Administrator implements RequestHandler {
             .filter(executor -> executor.canHandleRequest(req))
             .findFirst().orElse(null);
         if (canHandleRequestExecutor != null) {
-            System.out.println("Admin " + name + " found executor who can execute task :)");
+            System.out.println("Admin " + name + " found executor who can execute the task :)");
             return true;
         }
-        System.out.println("Admin " + name + " didn't find executor who can execute task :(");
+        System.out.println("Admin " + name + " didn't find executor who can execute the task :(");
         return false;
     }
 

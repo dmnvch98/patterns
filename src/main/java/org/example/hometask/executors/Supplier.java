@@ -1,8 +1,8 @@
 package org.example.hometask.executors;
 
 import lombok.experimental.SuperBuilder;
-import org.example.hometask.Request;
-import org.example.hometask.RequestType;
+import org.example.hometask.requests.Request;
+import org.example.hometask.requests.RequestType;
 import org.example.hometask.executors.states.State;
 import org.example.hometask.executors.states.WorkState;
 

@@ -1,7 +1,7 @@
 package org.example.hometask.executors;
 
 import lombok.experimental.SuperBuilder;
-import org.example.hometask.Request;
+import org.example.hometask.requests.Request;
 
 @SuperBuilder
 public class SupplierAdapter extends Executor {

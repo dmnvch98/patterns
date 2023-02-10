@@ -1,4 +1,4 @@
-package org.example.hometask;
+package org.example.hometask.requests;
 
 public interface RequestHandler {
     boolean canHandleRequest(Request req);

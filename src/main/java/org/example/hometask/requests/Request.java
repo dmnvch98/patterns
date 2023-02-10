@@ -1,4 +1,4 @@
-package org.example.hometask;
+package org.example.hometask.requests;
 
 import lombok.Builder;
 import lombok.Setter;
