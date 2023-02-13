@@ -1,9 +1,9 @@
-package org.example.hometask.managers;
+package org.example.patternshometask.managers;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.example.hometask.requests.Request;
-import org.example.hometask.executors.Executor;
+import org.example.patternshometask.executors.Executor;
+import org.example.patternshometask.requests.Request;
 
 import java.util.List;
 

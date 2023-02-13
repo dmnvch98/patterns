@@ -1,18 +1,18 @@
-package org.example.hometask.hierarchy;
+package org.example.patternshometask.hierarchy;
 
 import lombok.Builder;
-import org.example.hometask.Tax;
-import org.example.hometask.executors.Employee;
-import org.example.hometask.executors.Supplier;
-import org.example.hometask.executors.SupplierAdapter;
-import org.example.hometask.executors.states.DayOfState;
-import org.example.hometask.executors.states.SickState;
-import org.example.hometask.executors.states.VacationState;
-import org.example.hometask.executors.states.WorkState;
-import org.example.hometask.managers.Administrator;
-import org.example.hometask.managers.Director;
-import org.example.hometask.managers.Founder;
-import org.example.hometask.requests.Request;
+import org.example.patternshometask.Tax;
+import org.example.patternshometask.executors.Employee;
+import org.example.patternshometask.executors.Supplier;
+import org.example.patternshometask.executors.SupplierAdapter;
+import org.example.patternshometask.executors.states.DayOfState;
+import org.example.patternshometask.executors.states.SickState;
+import org.example.patternshometask.executors.states.VacationState;
+import org.example.patternshometask.executors.states.WorkState;
+import org.example.patternshometask.managers.Administrator;
+import org.example.patternshometask.managers.Director;
+import org.example.patternshometask.managers.Founder;
+import org.example.patternshometask.requests.Request;
 
 import java.util.Arrays;
 import java.util.Collections;

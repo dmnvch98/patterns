@@ -1,10 +1,10 @@
-package org.example.hometask.executors;
+package org.example.patternshometask.executors;
 
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
-import org.example.hometask.requests.Request;
-import org.example.hometask.requests.RequestHandler;
-import org.example.hometask.executors.states.State;
+import org.example.patternshometask.executors.states.State;
+import org.example.patternshometask.requests.Request;
+import org.example.patternshometask.requests.RequestHandler;
 
 @SuperBuilder
 public abstract class Executor implements RequestHandler {

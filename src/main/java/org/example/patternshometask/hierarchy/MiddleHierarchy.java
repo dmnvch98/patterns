@@ -1,24 +1,24 @@
-package org.example.hometask.hierarchy;
+package org.example.patternshometask.hierarchy;
 
 import lombok.Builder;
-import org.example.hometask.Tax;
-import org.example.hometask.executors.Employee;
-import org.example.hometask.executors.Supplier;
-import org.example.hometask.executors.SupplierAdapter;
-import org.example.hometask.executors.states.DayOfState;
-import org.example.hometask.executors.states.SickState;
-import org.example.hometask.executors.states.VacationState;
-import org.example.hometask.executors.states.WorkState;
-import org.example.hometask.managers.*;
-import org.example.hometask.requests.Request;
+import org.example.patternshometask.Tax;
+import org.example.patternshometask.executors.Employee;
+import org.example.patternshometask.executors.Supplier;
+import org.example.patternshometask.executors.SupplierAdapter;
+import org.example.patternshometask.executors.states.DayOfState;
+import org.example.patternshometask.executors.states.SickState;
+import org.example.patternshometask.executors.states.VacationState;
+import org.example.patternshometask.executors.states.WorkState;
+import org.example.patternshometask.managers.*;
+import org.example.patternshometask.requests.Request;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-public class HardHierarchy {
+public class MiddleHierarchy {
     private final Founder founder;
     @Builder
-    public HardHierarchy() {
+    public MiddleHierarchy() {
         Administrator administrator1 = Administrator.builder().executors(Arrays.asList(
                 Employee.builder().state(DayOfState.builder().build()).name("1").build(),
                 Employee.builder().state(SickState.builder().build()).name("2").build(),
@@ -42,19 +42,9 @@ public class HardHierarchy {
             .name("2")
             .build();
 
-        DeputyDirectorFour deputyDirectorFour = DeputyDirectorFour
-            .builder()
-            .managers(Arrays.asList(administrator1, administrator2))
-            .build();
-
-        DeputyDirectorThree deputyDirectorThree = DeputyDirectorThree.
-            builder()
-            .managers(Collections.singletonList(deputyDirectorFour))
-            .build();
-
         DeputyDirectorTwo deputyDirectorTwo = DeputyDirectorTwo
             .builder()
-            .managers(Collections.singletonList(deputyDirectorThree))
+            .managers(Arrays.asList(administrator1, administrator2))
             .build();
 
         DeputyDirector deputyDirector = DeputyDirector

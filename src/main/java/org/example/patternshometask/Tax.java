@@ -1,8 +1,8 @@
-package org.example.hometask;
+package org.example.patternshometask;
 
 import lombok.Builder;
-import org.example.hometask.requests.Request;
-import org.example.hometask.requests.RequestObserver;
+import org.example.patternshometask.requests.Request;
+import org.example.patternshometask.requests.RequestObserver;
 
 @Builder
 public class Tax implements RequestObserver {
