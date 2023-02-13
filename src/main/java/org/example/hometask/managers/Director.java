@@ -1,14 +1,13 @@
 package org.example.hometask.managers;
 
-import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 import org.example.hometask.requests.Request;
 import org.example.hometask.requests.RequestObserver;
 
 import java.util.List;
 
-@Builder
+@SuperBuilder
 public class Director extends Manager {
-    List<Manager> deputyDirectors;
     List<RequestObserver> requestObservers;
 
     @Override
@@ -18,7 +17,7 @@ public class Director extends Manager {
 
     @Override
     public Request handle(Request req) {
-        Request request = deputyDirectors
+        Request request = managers
             .stream()
             .filter(handler -> handler.canHandleRequest(req))
             .findFirst()

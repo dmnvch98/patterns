@@ -7,17 +7,12 @@ import org.example.hometask.executors.Executor;
 
 import java.util.List;
 
+@Builder
 public class Administrator extends Manager {
     @Getter
     private List<Executor> executors;
     private final String name;
     private Executor canHandleRequestExecutor;
-
-    @Builder
-    public Administrator(List<Executor> executors, String name) {
-        this.executors = executors;
-        this.name = name;
-    }
 
     @Override
     public boolean canHandleRequest(Request req) {

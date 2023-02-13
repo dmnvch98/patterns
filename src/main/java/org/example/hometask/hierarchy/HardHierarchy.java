@@ -9,20 +9,16 @@ import org.example.hometask.executors.states.DayOfState;
 import org.example.hometask.executors.states.SickState;
 import org.example.hometask.executors.states.VacationState;
 import org.example.hometask.executors.states.WorkState;
-import org.example.hometask.managers.Administrator;
-import org.example.hometask.managers.Director;
-import org.example.hometask.managers.Founder;
+import org.example.hometask.managers.*;
 import org.example.hometask.requests.Request;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-
-public class SimpleHierarchy {
+public class HardHierarchy {
     private final Founder founder;
-
     @Builder
-    public SimpleHierarchy() {
+    public HardHierarchy() {
         Administrator administrator1 = Administrator.builder().executors(Arrays.asList(
                 Employee.builder().state(DayOfState.builder().build()).name("1").build(),
                 Employee.builder().state(SickState.builder().build()).name("2").build(),
@@ -46,11 +42,30 @@ public class SimpleHierarchy {
             .name("2")
             .build();
 
+        DeputyDirectorFour deputyDirectorFour = DeputyDirectorFour
+            .builder()
+            .managers(Arrays.asList(administrator1, administrator2))
+            .build();
+
+        DeputyDirectorThree deputyDirectorThree = DeputyDirectorThree.
+            builder()
+            .managers(Collections.singletonList(deputyDirectorFour))
+            .build();
+
+        DeputyDirectorTwo deputyDirectorTwo = DeputyDirectorTwo
+            .builder()
+            .managers(Collections.singletonList(deputyDirectorThree))
+            .build();
+
+        DeputyDirector deputyDirector = DeputyDirector
+            .builder()
+            .managers(Collections.singletonList(deputyDirectorTwo))
+            .build();
         Tax tax = Tax.builder().build();
 
         Director director = Director
             .builder()
-            .managers(Arrays.asList(administrator1, administrator2))
+            .managers(Collections.singletonList(deputyDirector))
             .requestObservers(Collections.singletonList(tax))
             .build();
         founder = Founder.builder().director(director).build();
