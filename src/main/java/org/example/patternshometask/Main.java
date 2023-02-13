@@ -1,10 +1,10 @@
-package org.example.hometask;
+package org.example.patternshometask;
 
-import org.example.hometask.hierarchy.HardHierarchy;
-import org.example.hometask.hierarchy.MiddleHierarchy;
-import org.example.hometask.hierarchy.SimpleHierarchy;
-import org.example.hometask.requests.Request;
-import org.example.hometask.requests.RequestType;
+import org.example.patternshometask.hierarchy.HardHierarchy;
+import org.example.patternshometask.hierarchy.MiddleHierarchy;
+import org.example.patternshometask.hierarchy.SimpleHierarchy;
+import org.example.patternshometask.requests.Request;
+import org.example.patternshometask.requests.RequestType;
 
 public class Main {
     public static void main(String[] args) {

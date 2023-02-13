@@ -1,8 +1,8 @@
-package org.example.hometask.managers;
+package org.example.patternshometask.managers;
 
 import lombok.Builder;
 import lombok.Value;
-import org.example.hometask.requests.Request;
+import org.example.patternshometask.requests.Request;
 
 @Builder
 @Value

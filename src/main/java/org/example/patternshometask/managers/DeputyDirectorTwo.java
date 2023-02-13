@@ -1,10 +1,10 @@
-package org.example.hometask.managers;
+package org.example.patternshometask.managers;
 
 import lombok.experimental.SuperBuilder;
-import org.example.hometask.requests.Request;
+import org.example.patternshometask.requests.Request;
 
 @SuperBuilder
-public class DeputyDirectorFour extends Manager {
+public class DeputyDirectorTwo extends Manager {
     Manager canHandleRequestAdministrator;
 
     @Override

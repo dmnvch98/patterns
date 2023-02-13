@@ -1,8 +1,8 @@
-package org.example.hometask.managers;
+package org.example.patternshometask.managers;
 
 import lombok.experimental.SuperBuilder;
-import org.example.hometask.requests.Request;
-import org.example.hometask.requests.RequestObserver;
+import org.example.patternshometask.requests.Request;
+import org.example.patternshometask.requests.RequestObserver;
 
 import java.util.List;
 

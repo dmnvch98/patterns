@@ -1,4 +1,4 @@
-package org.example.hometask.executors.states;
+package org.example.patternshometask.executors.states;
 
 import lombok.Builder;
 
